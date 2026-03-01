@@ -18,6 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// - [textLink] - (for clickable text URLs)
 /// - [textMention] - (for users without usernames)
 /// - [customEmoji] - (for inline custom emoji stickers)
+/// - [dateTime] - (for formatted date and time)
 @JsonEnum(fieldRename: FieldRename.snake)
 enum MessageEntityType {
   /// Mention - (@username)
@@ -95,4 +96,8 @@ enum MessageEntityType {
   /// Expandable Block Quote
   @JsonValue('expandable_blockquote')
   expandableBlockquote,
+
+  /// For formatted date and time
+  @JsonValue('date_time')
+  dateTime,
 }
