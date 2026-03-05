@@ -414,6 +414,10 @@ class RawAPI {
       'suggested_post_parameters': ?suggestedPostParameters,
     };
 
+    if (photo.type == InputFileType.fileId) {
+      params['photo'] = photo.fileId; // Add file_id string to params
+    }
+
     final payload = Payload(params, _prepareFiles([('photo', photo)]));
 
     final response = await _makeRequest<Map<String, dynamic>>(
