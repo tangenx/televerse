@@ -61,13 +61,12 @@ mixin _$MessageEntity {
   @JsonKey(name: 'custom_emoji_id')
   String? get customEmojiId;
 
-  /// Optional. For "date_time" only, the Unix time associated with the
-  /// entity
+  /// Optional. For “date_time” only, the Unix time associated with the entity
   @JsonKey(name: 'unix_time')
   int? get unixTime;
 
-  /// Optional. For "date_time" only, the string that defines the formatting
-  /// of the date and time
+  /// Optional. For “date_time” only, the string that defines the formatting
+  /// of the date and time. See date-time entity formatting for more details.
   @JsonKey(name: 'date_time_format')
   String? get dateTimeFormat;
 
@@ -344,14 +343,13 @@ class _MessageEntity implements MessageEntity {
   @JsonKey(name: 'custom_emoji_id')
   final String? customEmojiId;
 
-  /// Optional. For "date_time" only, the Unix time associated with the
-  /// entity
+  /// Optional. For “date_time” only, the Unix time associated with the entity
   @override
   @JsonKey(name: 'unix_time')
   final int? unixTime;
 
-  /// Optional. For "date_time" only, the string that defines the formatting
-  /// of the date and time
+  /// Optional. For “date_time” only, the string that defines the formatting
+  /// of the date and time. See date-time entity formatting for more details.
   @override
   @JsonKey(name: 'date_time_format')
   final String? dateTimeFormat;

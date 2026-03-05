@@ -52,12 +52,11 @@ abstract class MessageEntity with _$MessageEntity {
     /// sticker
     @JsonKey(name: 'custom_emoji_id') String? customEmojiId,
 
-    /// Optional. For "date_time" only, the Unix time associated with the
-    /// entity
+    /// Optional. For “date_time” only, the Unix time associated with the entity
     @JsonKey(name: 'unix_time') int? unixTime,
 
-    /// Optional. For "date_time" only, the string that defines the formatting
-    /// of the date and time
+    /// Optional. For “date_time” only, the string that defines the formatting
+    /// of the date and time. See date-time entity formatting for more details.
     @JsonKey(name: 'date_time_format') String? dateTimeFormat,
   }) = _MessageEntity;
 
