@@ -2796,7 +2796,6 @@ class RawAPI {
   }) async {
     final params = <String, dynamic>{
       'chat_id': chatId,
-      'sticker': sticker,
       'business_connection_id': ?businessConnectionId,
       'message_thread_id': ?messageThreadId,
       'emoji': ?emoji,
@@ -2809,6 +2808,10 @@ class RawAPI {
       'direct_messages_topic_id': ?directMessagesTopicId,
       'suggested_post_parameters': ?suggestedPostParameters,
     };
+
+    if (sticker.type == InputFileType.fileId) {
+      params['sticker'] = sticker.fileId;
+    }
 
     final files = _prepareFiles([('sticker', sticker)]);
     final payload = Payload(params, files);
