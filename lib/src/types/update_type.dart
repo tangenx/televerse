@@ -96,7 +96,11 @@ enum UpdateType implements TeleverseEnum {
 
   /// Updates about purchased paid media
   @JsonValue("purchased_paid_media")
-  purchasedPaidMedia;
+  purchasedPaidMedia,
+
+  /// New guest message.
+  @JsonValue("guest_message")
+  guestMessage;
 
   /// Check if the update is a message update
   bool get isMessage => this == UpdateType.message;
@@ -146,6 +150,9 @@ enum UpdateType implements TeleverseEnum {
   /// Check if the update is a message reaction count update
   bool get isMessageReactionCount => this == UpdateType.messageReactionCount;
 
+  /// Check if the update is a guest message update
+  bool get isGuestMessage => this == UpdateType.guestMessage;
+
   /// List of update types that related to a Message event.
   static List<UpdateType> messages() {
     return [
@@ -155,6 +162,7 @@ enum UpdateType implements TeleverseEnum {
       editedChannelPost,
       businessMessage,
       editedBusinessMessage,
+      guestMessage,
     ];
   }
 
