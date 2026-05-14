@@ -1309,6 +1309,18 @@ class EmojiReactionFilter<CTX extends Context> extends Filter<CTX> {
   String toString() => 'EmojiReactionFilter(emoji: "$emoji")';
 }
 
+/// Filter that matches guest message updates.
+class GuestMessageFilter<CTX extends Context> extends Filter<CTX> {
+  /// Creates a filter that matches guest message updates.
+  const GuestMessageFilter();
+
+  @override
+  bool matches(CTX ctx) => ctx.update.guestMessage != null;
+
+  @override
+  String toString() => 'GuestMessageFilter()';
+}
+
 /// Filter for paid media purchase updates.
 class PurchasedPaidMediaFilter<CTX extends Context> extends Filter<CTX> {
   /// Creates a filter that matches paid media purchase updates.

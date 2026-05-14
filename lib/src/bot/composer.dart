@@ -576,6 +576,11 @@ class Composer<CTX extends Context> {
     return on(ChatJoinRequestFilter<CTX>(), handler);
   }
 
+  /// Adds a handler for guest message updates.
+  Composer<CTX> onGuestMessage(UpdateHandler<CTX> handler) {
+    return on(GuestMessageFilter<CTX>(), handler);
+  }
+
   // ===============================
   // Service Message Handlers
   // ===============================
