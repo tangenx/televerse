@@ -259,7 +259,8 @@ class Context {
         channelPost ??
         editedChannelPost ??
         businessMessage ??
-        editedBusinessMessage;
+        editedBusinessMessage ??
+        guestMessage;
     if (callbackQuery?.message is Message) {
       m ??= (callbackQuery?.message as Message);
     }
@@ -297,7 +298,8 @@ class Context {
           editedMessage?.chat ??
           channelPost?.chat ??
           editedChannelPost?.chat ??
-          callbackQuery?.message?.chat;
+          callbackQuery?.message?.chat ??
+          guestMessage?.chat;
       _chatCached = true;
     }
     return _cachedChat;
