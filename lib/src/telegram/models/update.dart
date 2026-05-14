@@ -195,6 +195,8 @@ extension UpdateExt on Update {
       return UpdateType.deletedBusinessMessages;
     } else if (purchasedPaidMedia != null) {
       return UpdateType.purchasedPaidMedia;
+    } else if (guestMessage != null) {
+      return UpdateType.guestMessage;
     } else {
       throw TeleverseException(
         "The update type is unknown",
