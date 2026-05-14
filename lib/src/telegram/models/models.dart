@@ -132,6 +132,7 @@ export './reply_markup.dart';
 export './reply_parameters.dart';
 export './response_parameters.dart';
 export './revenue_withdrawal_state.dart';
+export './sent_guest_message.dart';
 export './sent_web_app_message.dart';
 export './shared_user.dart';
 export './shipping_address.dart';

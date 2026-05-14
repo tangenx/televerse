@@ -475,6 +475,9 @@ abstract class Message
 
     /// Optional. Tag or custom title of the sender of the message; for supergroups only
     @JsonKey(name: 'sender_tag') String? senderTag,
+
+    /// Optional. The unique identifier for the guest query. Use this identifier with the method answerGuestQuery to send a response message. If non-empty, the message belongs to the chat where the guest bot was summoned, which may not coincide with other existing bot chats sharing the same identifier.
+    @JsonKey(name: 'guest_query_id') String? guestQueryId,
   }) = _Message;
 
   /// Creates a [Message] object from JSON object

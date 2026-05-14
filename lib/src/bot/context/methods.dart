@@ -929,6 +929,39 @@ extension ContextAwareMethods on Context {
     );
   }
 
+  /// Replies to a received guest message.
+  ///
+  /// This method sends a response to a guest query. The guest query ID is
+  /// automatically extracted from the current update.
+  ///
+  /// Example:
+  /// ```dart
+  /// await ctx.answerGuestQuery(
+  ///   InlineQueryResultArticle(
+  ///     id: '1',
+  ///     title: 'Hello',
+  ///     inputMessageContent: InputTextMessageContent(
+  ///       messageText: 'Hello from guest bot!',
+  ///     ),
+  ///   ),
+  /// );
+  /// ```
+  Future<SentGuestMessage> answerGuestQuery(
+    InlineQueryResult result,
+  ) async {
+    final query = guestMessage;
+    _verifyInfo(
+      [query],
+      APIMethod.answerGuestQuery,
+      description: "No guest message found in the current update.",
+    );
+
+    return api.answerGuestQuery(
+      query!.guestQueryId!,
+      result,
+    );
+  }
+
   // ===============================
   // Chat Action Shortcuts
   // ===============================

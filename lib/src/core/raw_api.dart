@@ -3117,6 +3117,27 @@ class RawAPI {
     return await _makeRequest<bool>(APIMethod.answerInlineQuery.name, payload);
   }
 
+  /// Replies to a received guest message.
+  ///
+  /// See https://core.telegram.org/bots/api#answerguestquery
+  Future<SentGuestMessage> answerGuestQuery(
+    String guestQueryId,
+    InlineQueryResult result,
+  ) async {
+    final params = <String, dynamic>{
+      'guest_query_id': guestQueryId,
+      'result': result,
+    };
+
+    final payload = Payload(params);
+    final response = await _makeRequest<Map<String, dynamic>>(
+      APIMethod.answerGuestQuery.name,
+      payload,
+    );
+
+    return SentGuestMessage.fromJson(response);
+  }
+
   /// Sets the result of an interaction with a Web App and sends a corresponding message.
   ///
   /// See https://core.telegram.org/bots/api#answerwebappquery

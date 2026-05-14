@@ -218,6 +218,11 @@ class Context {
   /// This will be non-null when a user changes their answer in a non-anonymous poll.
   PollAnswer? get pollAnswer => update.pollAnswer;
 
+  /// The guest message from the update, if any.
+  ///
+  /// This will be non-null for guest messages.
+  Message? get guestMessage => update.guestMessage;
+
   /// The Chat ID quick getter.
   ChatID get id {
     final id = _getChatId();
