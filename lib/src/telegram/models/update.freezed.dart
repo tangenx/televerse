@@ -133,6 +133,12 @@ mixin _$Update {
   @JsonKey(name: 'deleted_business_messages')
   BusinessMessagesDeleted? get deletedBusinessMessages;
 
+  /// Optional. New guest message. The bot can use the field
+  /// Message.guest_query_id and the method answerGuestQuery to send a message
+  ///  in response
+  @JsonKey(name: 'guest_message')
+  Message? get guestMessage;
+
   /// Optional. A user purchased paid media with a non-empty payload sent by
   /// the bot in a non-channel chat
   @JsonKey(name: 'purchased_paid_media')
@@ -150,7 +156,7 @@ mixin _$Update {
 
   @override
   String toString() {
-    return 'Update(updateId: $updateId, message: $message, editedMessage: $editedMessage, channelPost: $channelPost, editedChannelPost: $editedChannelPost, inlineQuery: $inlineQuery, chosenInlineResult: $chosenInlineResult, callbackQuery: $callbackQuery, shippingQuery: $shippingQuery, preCheckoutQuery: $preCheckoutQuery, poll: $poll, pollAnswer: $pollAnswer, myChatMember: $myChatMember, chatMember: $chatMember, chatJoinRequest: $chatJoinRequest, messageReaction: $messageReaction, messageReactionCount: $messageReactionCount, chatBoost: $chatBoost, removedChatBoost: $removedChatBoost, businessConnection: $businessConnection, businessMessage: $businessMessage, editedBusinessMessage: $editedBusinessMessage, deletedBusinessMessages: $deletedBusinessMessages, purchasedPaidMedia: $purchasedPaidMedia)';
+    return 'Update(updateId: $updateId, message: $message, editedMessage: $editedMessage, channelPost: $channelPost, editedChannelPost: $editedChannelPost, inlineQuery: $inlineQuery, chosenInlineResult: $chosenInlineResult, callbackQuery: $callbackQuery, shippingQuery: $shippingQuery, preCheckoutQuery: $preCheckoutQuery, poll: $poll, pollAnswer: $pollAnswer, myChatMember: $myChatMember, chatMember: $chatMember, chatJoinRequest: $chatJoinRequest, messageReaction: $messageReaction, messageReactionCount: $messageReactionCount, chatBoost: $chatBoost, removedChatBoost: $removedChatBoost, businessConnection: $businessConnection, businessMessage: $businessMessage, editedBusinessMessage: $editedBusinessMessage, deletedBusinessMessages: $deletedBusinessMessages, guestMessage: $guestMessage, purchasedPaidMedia: $purchasedPaidMedia)';
   }
 }
 
@@ -187,6 +193,7 @@ abstract mixin class $UpdateCopyWith<$Res> {
     @JsonKey(name: 'edited_business_message') Message? editedBusinessMessage,
     @JsonKey(name: 'deleted_business_messages')
     BusinessMessagesDeleted? deletedBusinessMessages,
+    @JsonKey(name: 'guest_message') Message? guestMessage,
     @JsonKey(name: 'purchased_paid_media')
     PaidMediaPurchased? purchasedPaidMedia,
   });
@@ -245,6 +252,7 @@ class _$UpdateCopyWithImpl<$Res> implements $UpdateCopyWith<$Res> {
     Object? businessMessage = freezed,
     Object? editedBusinessMessage = freezed,
     Object? deletedBusinessMessages = freezed,
+    Object? guestMessage = freezed,
     Object? purchasedPaidMedia = freezed,
   }) {
     return _then(
@@ -341,6 +349,10 @@ class _$UpdateCopyWithImpl<$Res> implements $UpdateCopyWith<$Res> {
             ? _self.deletedBusinessMessages
             : deletedBusinessMessages // ignore: cast_nullable_to_non_nullable
                   as BusinessMessagesDeleted?,
+        guestMessage: freezed == guestMessage
+            ? _self.guestMessage
+            : guestMessage // ignore: cast_nullable_to_non_nullable
+                  as Message?,
         purchasedPaidMedia: freezed == purchasedPaidMedia
             ? _self.purchasedPaidMedia
             : purchasedPaidMedia // ignore: cast_nullable_to_non_nullable
@@ -709,6 +721,7 @@ class _Update implements Update {
     @JsonKey(name: 'business_message') this.businessMessage,
     @JsonKey(name: 'edited_business_message') this.editedBusinessMessage,
     @JsonKey(name: 'deleted_business_messages') this.deletedBusinessMessages,
+    @JsonKey(name: 'guest_message') this.guestMessage,
     @JsonKey(name: 'purchased_paid_media') this.purchasedPaidMedia,
   });
   factory _Update.fromJson(Map<String, dynamic> json) => _$UpdateFromJson(json);
@@ -856,6 +869,13 @@ class _Update implements Update {
   @JsonKey(name: 'deleted_business_messages')
   final BusinessMessagesDeleted? deletedBusinessMessages;
 
+  /// Optional. New guest message. The bot can use the field
+  /// Message.guest_query_id and the method answerGuestQuery to send a message
+  ///  in response
+  @override
+  @JsonKey(name: 'guest_message')
+  final Message? guestMessage;
+
   /// Optional. A user purchased paid media with a non-empty payload sent by
   /// the bot in a non-channel chat
   @override
@@ -877,7 +897,7 @@ class _Update implements Update {
 
   @override
   String toString() {
-    return 'Update(updateId: $updateId, message: $message, editedMessage: $editedMessage, channelPost: $channelPost, editedChannelPost: $editedChannelPost, inlineQuery: $inlineQuery, chosenInlineResult: $chosenInlineResult, callbackQuery: $callbackQuery, shippingQuery: $shippingQuery, preCheckoutQuery: $preCheckoutQuery, poll: $poll, pollAnswer: $pollAnswer, myChatMember: $myChatMember, chatMember: $chatMember, chatJoinRequest: $chatJoinRequest, messageReaction: $messageReaction, messageReactionCount: $messageReactionCount, chatBoost: $chatBoost, removedChatBoost: $removedChatBoost, businessConnection: $businessConnection, businessMessage: $businessMessage, editedBusinessMessage: $editedBusinessMessage, deletedBusinessMessages: $deletedBusinessMessages, purchasedPaidMedia: $purchasedPaidMedia)';
+    return 'Update(updateId: $updateId, message: $message, editedMessage: $editedMessage, channelPost: $channelPost, editedChannelPost: $editedChannelPost, inlineQuery: $inlineQuery, chosenInlineResult: $chosenInlineResult, callbackQuery: $callbackQuery, shippingQuery: $shippingQuery, preCheckoutQuery: $preCheckoutQuery, poll: $poll, pollAnswer: $pollAnswer, myChatMember: $myChatMember, chatMember: $chatMember, chatJoinRequest: $chatJoinRequest, messageReaction: $messageReaction, messageReactionCount: $messageReactionCount, chatBoost: $chatBoost, removedChatBoost: $removedChatBoost, businessConnection: $businessConnection, businessMessage: $businessMessage, editedBusinessMessage: $editedBusinessMessage, deletedBusinessMessages: $deletedBusinessMessages, guestMessage: $guestMessage, purchasedPaidMedia: $purchasedPaidMedia)';
   }
 }
 
@@ -915,6 +935,7 @@ abstract mixin class _$UpdateCopyWith<$Res> implements $UpdateCopyWith<$Res> {
     @JsonKey(name: 'edited_business_message') Message? editedBusinessMessage,
     @JsonKey(name: 'deleted_business_messages')
     BusinessMessagesDeleted? deletedBusinessMessages,
+    @JsonKey(name: 'guest_message') Message? guestMessage,
     @JsonKey(name: 'purchased_paid_media')
     PaidMediaPurchased? purchasedPaidMedia,
   });
@@ -990,6 +1011,7 @@ class __$UpdateCopyWithImpl<$Res> implements _$UpdateCopyWith<$Res> {
     Object? businessMessage = freezed,
     Object? editedBusinessMessage = freezed,
     Object? deletedBusinessMessages = freezed,
+    Object? guestMessage = freezed,
     Object? purchasedPaidMedia = freezed,
   }) {
     return _then(
@@ -1086,6 +1108,10 @@ class __$UpdateCopyWithImpl<$Res> implements _$UpdateCopyWith<$Res> {
             ? _self.deletedBusinessMessages
             : deletedBusinessMessages // ignore: cast_nullable_to_non_nullable
                   as BusinessMessagesDeleted?,
+        guestMessage: freezed == guestMessage
+            ? _self.guestMessage
+            : guestMessage // ignore: cast_nullable_to_non_nullable
+                  as Message?,
         purchasedPaidMedia: freezed == purchasedPaidMedia
             ? _self.purchasedPaidMedia
             : purchasedPaidMedia // ignore: cast_nullable_to_non_nullable

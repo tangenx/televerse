@@ -94,6 +94,9 @@ _Update _$UpdateFromJson(Map<String, dynamic> json) => _Update(
       : BusinessMessagesDeleted.fromJson(
           json['deleted_business_messages'] as Map<String, dynamic>,
         ),
+  guestMessage: json['guest_message'] == null
+      ? null
+      : Message.fromJson(json['guest_message'] as Map<String, dynamic>),
   purchasedPaidMedia: json['purchased_paid_media'] == null
       ? null
       : PaidMediaPurchased.fromJson(
@@ -125,5 +128,6 @@ Map<String, dynamic> _$UpdateToJson(_Update instance) => <String, dynamic>{
   'business_message': ?instance.businessMessage,
   'edited_business_message': ?instance.editedBusinessMessage,
   'deleted_business_messages': ?instance.deletedBusinessMessages,
+  'guest_message': ?instance.guestMessage,
   'purchased_paid_media': ?instance.purchasedPaidMedia,
 };

@@ -130,6 +130,11 @@ abstract class Update with _$Update {
     @JsonKey(name: 'deleted_business_messages')
     BusinessMessagesDeleted? deletedBusinessMessages,
 
+    /// Optional. New guest message. The bot can use the field
+    /// Message.guest_query_id and the method answerGuestQuery to send a message
+    ///  in response
+    @JsonKey(name: 'guest_message') Message? guestMessage,
+
     /// Optional. A user purchased paid media with a non-empty payload sent by
     /// the bot in a non-channel chat
     @JsonKey(name: 'purchased_paid_media')
