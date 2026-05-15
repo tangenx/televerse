@@ -762,6 +762,10 @@ class RawAPI {
       'suggested_post_parameters': ?suggestedPostParameters,
     };
 
+    if (video.type == InputFileType.fileId) {
+      params['video'] = video.fileId;
+    }
+
     final files = _prepareFiles([
       ('video', video),
       (null, thumbnail),
@@ -825,6 +829,10 @@ class RawAPI {
       'direct_messages_topic_id': ?directMessagesTopicId,
       'suggested_post_parameters': ?suggestedPostParameters,
     };
+
+    if (animation.type == InputFileType.fileId) {
+      params['animation'] = animation.fileId;
+    }
 
     final files = _prepareFiles([('animation', animation), (null, thumbnail)]);
 
